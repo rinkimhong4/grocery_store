@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
@@ -7,34 +6,34 @@ class AppTheme {
 
   static const MaterialColor primarySwatch =
       MaterialColor(_primarySwatchPrimaryValue, <int, Color>{
-        50: Color(0xFFE8EEFB),
-        100: Color(0xFFCAD7E7),
-        200: Color(0xFFADBBCF),
-        300: Color(0xFF8FA0B8),
-        400: Color(0xFF788CA6),
+        50: Color(0xFFF0F4FF),
+        100: Color(0xFFE0E7FF),
+        200: Color(0xFFCCD4FF),
+        300: Color(0xFF6C8BFF),
+        400: Color(0xFF5A75E0),
         500: Color(_primarySwatchPrimaryValue),
-        600: Color(0xFF536A84),
-        700: Color(0xFF43566D),
-        800: Color(0xFF344457),
-        900: Color(0xFF222F3F),
+        600: Color(0xFF364885),
+        700: Color(0xFF26357A),
+        800: Color(0xFF1D283F),
+        900: Color(0xFF192550),
       });
 
-  static const int _primarySwatchPrimaryValue = 0xFF617895;
+  static const int _primarySwatchPrimaryValue = 0xFF4457B4;
 
   static const MaterialColor secondarySwatch =
       MaterialColor(_secondarySwatchPrimaryValue, <int, Color>{
-        50: Color(0xFFE4E7EE),
-        100: Color(0xFFBBC2D6),
-        200: Color(0xFF909BB9),
-        300: Color(0xFF67759E),
-        400: Color(0xFF485A8C),
+        50: Color(0xFFFFF5F5),
+        100: Color(0xFFFFEBEB),
+        200: Color(0xFFFFDCDC),
+        300: Color(0xFFF9B8B8),
+        400: Color(0xFFF68C8C),
         500: Color(_secondarySwatchPrimaryValue),
-        600: Color(0xFF213973),
-        700: Color(0xFF183068),
-        800: Color(0xFF11275C),
-        900: Color(0xFF061845),
+        600: Color(0xFFE94545),
+        700: Color(0xFFDC3535),
+        800: Color(0xFFB32626),
+        900: Color(0xFF8A1A1A),
       });
-  static const int _secondarySwatchPrimaryValue = 0xFF273F7B;
+  static const int _secondarySwatchPrimaryValue = 0xFFF45B5B;
 
   static final ColorScheme _lightScheme =
       ColorScheme.fromSwatch(
@@ -43,45 +42,44 @@ class AppTheme {
         backgroundColor: AppColors.background,
       ).copyWith(
         primary: primarySwatch[900],
-        secondary: primarySwatch[500],
+        secondary: secondarySwatch[500],
         onPrimary: Colors.white,
         onSecondary: Colors.white,
         surface: Colors.white,
-        onSurface: Colors.black87,
-        error: Colors.red.shade700,
+        onSurface: AppColors.textDark,
+        error: secondarySwatch[500],
         onError: Colors.white,
       );
 
-  static final TextTheme _textTheme = GoogleFonts.leagueSpartanTextTheme()
-      .copyWith(
-        headlineLarge: GoogleFonts.leagueSpartan(
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-          color: _lightScheme.onPrimary,
-        ),
-        titleLarge: GoogleFonts.leagueSpartan(
-          fontSize: 26,
-          fontWeight: FontWeight.bold,
-          color: _lightScheme.onSurface,
-        ),
-        labelLarge: GoogleFonts.leagueSpartan(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-          color: _lightScheme.onPrimary,
-        ),
-        bodyMedium: GoogleFonts.leagueSpartan(
-          fontWeight: FontWeight.bold,
-          fontSize: 24,
-          color: _lightScheme.onSurface,
-        ),
-      );
+  static final TextTheme _textTheme = GoogleFonts.interTextTheme().copyWith(
+    headlineLarge: GoogleFonts.inter(
+      fontSize: 32,
+      fontWeight: FontWeight.w700,
+      color: _lightScheme.onSurface,
+    ),
+    titleLarge: GoogleFonts.inter(
+      fontSize: 22,
+      fontWeight: FontWeight.w700,
+      color: _lightScheme.onSurface,
+    ),
+    labelLarge: GoogleFonts.inter(
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      color: _lightScheme.onPrimary,
+    ),
+    bodyMedium: GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
+      fontSize: 16,
+      color: _lightScheme.onSurface,
+    ),
+  );
 
   static final ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
     colorScheme: _lightScheme,
     scaffoldBackgroundColor: AppColors.background,
-    fontFamily: GoogleFonts.leagueSpartan().fontFamily,
+    fontFamily: GoogleFonts.inter().fontFamily,
     appBarTheme: AppBarTheme(
       backgroundColor: AppTheme.primarySwatch[900],
       elevation: 0,
@@ -89,7 +87,7 @@ class AppTheme {
       foregroundColor: Colors.white,
       toolbarHeight: 56,
     ),
-    iconTheme: IconThemeData(color: _lightScheme.onPrimary),
+    iconTheme: IconThemeData(color: _lightScheme.onSurface),
     cardTheme: CardThemeData(
       color: Colors.white,
       elevation: 3,
@@ -107,9 +105,9 @@ class AppTheme {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: primarySwatch),
+        borderSide: const BorderSide(color: Color(0xFF4457B4)),
       ),
-      hintStyle: TextStyle(color: Colors.grey.shade600),
+      hintStyle: TextStyle(color: AppColors.textLight2),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -117,7 +115,7 @@ class AppTheme {
         foregroundColor: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 0,
-        textStyle: const TextStyle(fontWeight: FontWeight.bold),
+        textStyle: const TextStyle(fontWeight: FontWeight.w700),
       ),
     ),
     listTileTheme: ListTileThemeData(
@@ -136,45 +134,45 @@ class AppTheme {
         primarySwatch: primarySwatch,
         backgroundColor: const Color(0xFF121212),
       ).copyWith(
-        primary: primarySwatch[400],
-        secondary: primarySwatch[200],
-        onPrimary: Colors.black,
-        onSecondary: Colors.black,
+        primary: primarySwatch[300],
+        secondary: secondarySwatch[300],
+        onPrimary: AppColors.textDark,
+        onSecondary: AppColors.textDark,
         surface: const Color(0xFF1E1E1E),
         onSurface: Colors.white.withValues(alpha: .87),
-        error: Colors.red.shade400,
-        onError: Colors.black,
+        error: secondarySwatch[400],
+        onError: AppColors.textDark,
       );
 
-  static final TextTheme _darkTextTheme = GoogleFonts.leagueSpartanTextTheme()
-      .copyWith(
-        headlineLarge: GoogleFonts.leagueSpartan(
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-          color: _darkScheme.onPrimary,
-        ),
-        titleLarge: GoogleFonts.leagueSpartan(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: _darkScheme.onSurface,
-        ),
-        labelLarge: GoogleFonts.leagueSpartan(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-          color: _darkScheme.onPrimary,
-        ),
-        bodyMedium: GoogleFonts.leagueSpartan(
-          fontSize: 14,
-          color: _darkScheme.onSurface,
-        ),
-      );
+  static final TextTheme _darkTextTheme = GoogleFonts.interTextTheme().copyWith(
+    headlineLarge: GoogleFonts.inter(
+      fontSize: 32,
+      fontWeight: FontWeight.w700,
+      color: _darkScheme.onSurface,
+    ),
+    titleLarge: GoogleFonts.inter(
+      fontSize: 22,
+      fontWeight: FontWeight.w700,
+      color: _darkScheme.onSurface,
+    ),
+    labelLarge: GoogleFonts.inter(
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      color: _darkScheme.onPrimary,
+    ),
+    bodyMedium: GoogleFonts.inter(
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      color: _darkScheme.onSurface,
+    ),
+  );
 
   static final ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
     colorScheme: _darkScheme,
-    scaffoldBackgroundColor: _darkScheme.onPrimary,
-    fontFamily: GoogleFonts.leagueSpartan().fontFamily,
+    scaffoldBackgroundColor: _darkScheme.surface,
+    fontFamily: GoogleFonts.inter().fontFamily,
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
       elevation: 0,
@@ -199,17 +197,17 @@ class AppTheme {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: primarySwatch[400]!),
+        borderSide: BorderSide(color: primarySwatch[300]!),
       ),
       hintStyle: const TextStyle(color: Colors.white60),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: primarySwatch[400],
-        foregroundColor: Colors.black,
+        backgroundColor: primarySwatch[300],
+        foregroundColor: AppColors.textDark,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 0,
-        textStyle: const TextStyle(fontWeight: FontWeight.bold),
+        textStyle: const TextStyle(fontWeight: FontWeight.w700),
       ),
     ),
     listTileTheme: ListTileThemeData(
@@ -226,92 +224,110 @@ class AppTheme {
 class AppColors {
   AppColors._();
 
-  static const background = Color(0xFFF5F7FA);
-  static const Color cardShadow = Colors.black12;
-  static const blur = Color(0xFFe1ecff);
-  static var splash = const Color(0xFF063455);
-  static var redColor = const Color.fromARGB(255, 175, 12, 0);
-  static var green = Colors.green.shade800;
+  static const background = Color(0xFFF7F8FA);
+  static const cardShadow = Color(0x1A000000);
+  static const blur = Color(0xFFEAF0FF);
+  static const primaryDark = Color(0xFF192550);
+  static const primaryNavy = Color(0xFF26357A);
+  static const primaryBlue = Color(0xFF4457B4);
+  static const primaryLight = Color(0xFF6C8BFF);
+  static const secondaryOrange = Color(0xFFF45B5B);
+  static const secondaryPeach1 = Color(0xFFF68C8C);
+  static const secondaryPeach2 = Color(0xFFF9B8B8);
+  static const secondaryPeach3 = Color(0xFFFDD0D0);
+  static const tertiaryGreen = Color(0xFF2AC940);
+  static const tertiaryMint1 = Color(0xFF5DDC76);
+  static const tertiaryMint2 = Color(0xFFA2EAB3);
+  static const tertiaryMint3 = Color(0xFFD2F6DB);
+  static const textDark = Color(0xFF192550);
+  static const textLight1 = Color(0xFFA8B6D6);
+  static const textLight2 = Color(0xFFC7D2E9);
+  static const textLight3 = Color(0xFFE8EDF7);
+  static const bgLightBlue = Color(0xFFEAF0FF);
+  static const bgWhite = Color(0xFFFAFBFD);
   static const white = Colors.white;
-  static const darkColor = Color.fromRGBO(35, 52, 95, 1);
-  static const darkColorLight = Color.fromRGBO(57, 77, 127, 1);
-  static const darkIconColor = Color.fromRGBO(72, 113, 196, 1);
-  static const greyBlue = Color(0xFF677A8A);
-  static const grey = Color(0xFFCDCDCD);
-  static const blackGrey = Color(0xFF323738);
+  static var splash = const Color(0xFF192550);
+  static var redColor = const Color(0xFFF45B5B);
+  static var green = Color(0xFF2AC940);
+  static const darkColor = Color(0xFF192550);
+  static const darkColorLight = Color(0xFF26357A);
+  static const darkIconColor = Color(0xFF4457B4);
+  static const greyBlue = Color(0xFFA8B6D6);
+  static const grey = Color(0xFFC7D2E9);
+  static const blackGrey = Color(0xFF192550);
 }
 
 class AppTextStyle {
   AppTextStyle._();
 
-  static TextStyle battamBong14({Color? color}) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+  static TextStyle inter14({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       fontSize: 14,
-      fontFamily: 'Battambang',
+      height: height,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle battamBong15({Color? color}) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+  static TextStyle inter15({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       fontSize: 15,
-      fontFamily: 'Battambang',
+      height: height,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle battamBong16({Color? color}) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+  static TextStyle inter16({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       fontSize: 16,
-      fontFamily: 'Battambang',
+      height: height,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle battamBong18({Color? color}) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+  static TextStyle inter18({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       fontSize: 18,
-      fontFamily: 'Battambang',
+      height: height,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle battamBongBold18({Color? color}) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+  static TextStyle interBold18({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
       fontSize: 18,
-      fontFamily: 'Battambang-Bold',
+      height: height,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle battamBongBold16({Color? color}) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+  static TextStyle interBold16({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
       fontSize: 16,
-      fontFamily: 'Battambang-Bold',
+      height: height,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle battamBongBold20({Color? color}) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+  static TextStyle interBold20({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
       fontSize: 20,
-      fontFamily: 'Battambang-Bold',
+      height: height,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle battamBong20({Color? color}) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+  static TextStyle inter20({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       fontSize: 20,
-      fontFamily: 'Battambang',
+      height: height,
       color: color ?? AppColors.white,
     );
   }
@@ -320,20 +336,16 @@ class AppTextStyle {
     double? height,
     Color? color,
     bool? underline,
-    String? fontFamily,
+    FontStyle? fontStyle,
   }) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       height: height,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Regular'
-              : 'Battambang'),
       decoration: underline == true
           ? TextDecoration.underline
           : TextDecoration.none,
-      fontSize: Get.locale == const Locale('en', 'US') ? 10 : 10,
+      fontStyle: fontStyle ?? FontStyle.normal,
+      fontSize: 10,
       color: color ?? Colors.black,
     );
   }
@@ -342,20 +354,16 @@ class AppTextStyle {
     double? height,
     Color? color,
     bool? underline,
-    String? fontFamily,
+    FontStyle? fontStyle,
   }) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       height: height,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Regular'
-              : 'Battambang'),
       decoration: underline == true
           ? TextDecoration.underline
           : TextDecoration.none,
-      fontSize: Get.locale == const Locale('en', 'US') ? 11 : 11,
+      fontStyle: fontStyle ?? FontStyle.normal,
+      fontSize: 11,
       color: color ?? Colors.black,
     );
   }
@@ -364,20 +372,16 @@ class AppTextStyle {
     double? height,
     Color? color,
     bool? underline,
-    String? fontFamily,
+    FontStyle? fontStyle,
   }) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       height: height,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Regular'
-              : 'Battambang'),
       decoration: underline == true
           ? TextDecoration.underline
           : TextDecoration.none,
-      fontSize: Get.locale == const Locale('en', 'US') ? 14 : 12,
+      fontStyle: fontStyle ?? FontStyle.normal,
+      fontSize: 14,
       color: color ?? Colors.black,
     );
   }
@@ -386,20 +390,16 @@ class AppTextStyle {
     double? height,
     Color? color,
     bool? underline,
-    String? fontFamily,
+    FontStyle? fontStyle,
   }) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       height: height,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Regular'
-              : 'Battambang'),
       decoration: underline == true
           ? TextDecoration.underline
           : TextDecoration.none,
-      fontSize: Get.locale == const Locale('en', 'US') ? 15 : 13,
+      fontStyle: fontStyle ?? FontStyle.normal,
+      fontSize: 15,
       color: color ?? Colors.black,
     );
   }
@@ -408,20 +408,16 @@ class AppTextStyle {
     double? height,
     Color? color,
     bool? underline,
-    String? fontFamily,
+    FontStyle? fontStyle,
   }) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       height: height,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Regular'
-              : 'Battambang'),
       decoration: underline == true
           ? TextDecoration.underline
           : TextDecoration.none,
-      fontSize: Get.locale == const Locale('en', 'US') ? 14 : 14,
+      fontStyle: fontStyle ?? FontStyle.normal,
+      fontSize: 14,
       color: color ?? Colors.black,
     );
   }
@@ -430,15 +426,15 @@ class AppTextStyle {
     double? height,
     Color? color,
     bool? underline,
-    String? fontFamily,
+    FontStyle? fontStyle,
   }) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       height: height,
-      fontFamily: 'SourceSansPro-Regular',
       decoration: underline == true
           ? TextDecoration.underline
           : TextDecoration.none,
+      fontStyle: fontStyle ?? FontStyle.normal,
       fontSize: 14,
       color: color ?? Colors.black,
     );
@@ -447,20 +443,14 @@ class AppTextStyle {
   static TextStyle regular16({
     Color? color,
     double? height,
-    String? fontFamily,
     bool? underline,
     FontStyle? fontStyle,
   }) {
-    return TextStyle(
+    return GoogleFonts.inter(
       decoration: underline == true ? TextDecoration.underline : null,
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.w400,
       fontStyle: fontStyle ?? FontStyle.normal,
-      fontSize: Get.locale == const Locale('en', 'US') ? 16 : 16,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Regular'
-              : 'Battambang'),
+      fontSize: 16,
       color: color ?? Colors.black,
       height: height,
     );
@@ -469,34 +459,23 @@ class AppTextStyle {
   static TextStyle regular17({
     Color? color,
     double? height,
-    String? fontFamily,
     bool? underline,
     FontStyle? fontStyle,
   }) {
-    return TextStyle(
+    return GoogleFonts.inter(
       decoration: underline == true ? TextDecoration.underline : null,
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.w400,
       fontStyle: fontStyle ?? FontStyle.normal,
-      fontSize: Get.locale == const Locale('en', 'US') ? 17 : 17,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Regular'
-              : 'Battambang'),
+      fontSize: 17,
       color: color ?? Colors.black,
       height: height,
     );
   }
 
-  static TextStyle regular16NoKhmer({
-    Color? color,
-    double? height,
-    String? fontFamily,
-  }) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+  static TextStyle regular16NoKhmer({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       fontSize: 16,
-      fontFamily: 'SourceSansPro-Regular',
       color: color ?? Colors.black,
       height: height,
     );
@@ -506,360 +485,284 @@ class AppTextStyle {
     Color? color,
     double? height,
     bool? underline,
-    String? fontFamily,
+    FontStyle? fontStyle,
   }) {
-    return TextStyle(
+    return GoogleFonts.inter(
       decoration: underline == true ? TextDecoration.underline : null,
-      fontWeight: FontWeight.normal,
-      fontSize: Get.locale == const Locale('en', 'US') ? 15 : 15,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Regular'
-              : 'Battambang'),
+      fontWeight: FontWeight.w400,
+      fontStyle: fontStyle ?? FontStyle.normal,
+      fontSize: 15,
       color: color ?? Colors.black,
       height: height,
     );
   }
 
-  static TextStyle regular18({
-    Color? color,
-    double? height,
-    String? fontFamily,
-  }) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
-      fontSize: Get.locale == const Locale('en', 'US') ? 18 : 18,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Regular'
-              : 'Battambang'),
+  static TextStyle regular18({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
+      fontSize: 18,
       color: color ?? Colors.black,
       height: height,
     );
   }
 
-  static TextStyle regular19({
-    Color? color,
-    double? height,
-    String? fontFamily,
-  }) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
-      fontSize: Get.locale == const Locale('en', 'US') ? 18 : 16,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Regular'
-              : 'Battambang'),
+  static TextStyle regular19({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
+      fontSize: 18,
       color: color ?? Colors.black,
       height: height,
     );
   }
 
-  static TextStyle regular20({
-    Color? color,
-    double? height,
-    String? fontFamily,
-  }) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
-      fontSize: Get.locale == const Locale('en', 'US') ? 20 : 20,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Regular'
-              : 'Battambang'),
+  static TextStyle regular20({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
+      fontSize: 20,
       color: color ?? Colors.black,
       height: height,
     );
   }
 
-  static TextStyle regular22({Color? color}) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+  static TextStyle regular22({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       fontSize: 22,
+      height: height,
       color: color ?? AppColors.white,
     );
   }
 
   static TextStyle regular24({Color? color, double? height}) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
       fontSize: 24,
-      color: color ?? AppColors.white,
       height: height,
-    );
-  }
-
-  static TextStyle regular28({Color? color}) {
-    return TextStyle(
-      fontWeight: FontWeight.normal,
-      fontSize: 28,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle medium14({Color? color}) {
-    return TextStyle(
+  static TextStyle regular28({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w400,
+      fontSize: 28,
+      height: height,
+      color: color ?? AppColors.white,
+    );
+  }
+
+  static TextStyle medium14({Color? color, double? height}) {
+    return GoogleFonts.inter(
       fontWeight: FontWeight.w500,
+      fontSize: 14,
+      height: height,
+      color: color ?? AppColors.white,
+    );
+  }
+
+  static TextStyle medium16({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w500,
+      fontSize: 16,
+      height: height,
+      color: color ?? AppColors.white,
+    );
+  }
+
+  static TextStyle medium18({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w500,
+      fontSize: 18,
+      height: height,
+      color: color ?? AppColors.white,
+    );
+  }
+
+  static TextStyle medium28({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w500,
+      fontSize: 28,
+      height: height,
+      color: color ?? AppColors.white,
+    );
+  }
+
+  static TextStyle bold14({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      height: height,
+      fontWeight: FontWeight.w700,
       fontSize: 14,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle medium16({Color? color}) {
-    return TextStyle(
-      fontWeight: FontWeight.w500,
-      fontSize: 16,
+  static TextStyle bold15({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      height: height,
+      fontWeight: FontWeight.w700,
+      fontSize: 15,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle medium18({Color? color}) {
-    return TextStyle(
-      fontWeight: FontWeight.w500,
+  static TextStyle bold14NoKh({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      height: height,
+      fontWeight: FontWeight.w700,
+      fontSize: 14,
+      color: color ?? AppColors.white,
+    );
+  }
+
+  static TextStyle bold10({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
+      fontSize: 10,
+      height: height,
+      color: color ?? AppColors.white,
+    );
+  }
+
+  static TextStyle bold5({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
+      fontSize: 5,
+      height: height,
+      color: color ?? AppColors.white,
+    );
+  }
+
+  static TextStyle bold12({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      height: height,
+      fontWeight: FontWeight.w700,
+      fontSize: 12,
+      color: color ?? AppColors.white,
+    );
+  }
+
+  static TextStyle bold17({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      height: height,
+      fontWeight: FontWeight.w700,
+      fontSize: 17,
+      color: color ?? AppColors.white,
+    );
+  }
+
+  static TextStyle bold18({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      height: height,
+      fontWeight: FontWeight.w700,
       fontSize: 18,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle medium28({Color? color}) {
-    return TextStyle(
-      fontWeight: FontWeight.w500,
-      fontSize: 28,
-      color: color ?? AppColors.white,
-    );
-  }
-
-  static TextStyle bold14({Color? color, double? height, String? fontFamily}) {
-    return TextStyle(
+  static TextStyle bold16({Color? color, double? height}) {
+    return GoogleFonts.inter(
       height: height,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Bold'
-              : 'Battambang-Bold'),
-      fontWeight: FontWeight.bold,
-      fontSize: Get.locale == const Locale('en', 'US') ? 14 : 13,
+      fontWeight: FontWeight.w700,
+      fontSize: 16,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle bold15({Color? color, double? height, String? fontFamily}) {
-    return TextStyle(
-      height: height,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Bold'
-              : 'Battambang-Bold'),
-      fontWeight: FontWeight.bold,
-      fontSize: Get.locale == const Locale('en', 'US') ? 15 : 14,
-      color: color ?? AppColors.white,
-    );
-  }
-
-  static TextStyle bold14NoKh({
-    Color? color,
-    double? height,
-    String? fontFamily,
-  }) {
-    return TextStyle(
-      height: height,
-      fontFamily: fontFamily ?? 'SourceSansPro-Bold',
-      fontWeight: FontWeight.bold,
-      fontSize: 14,
-      color: color ?? AppColors.white,
-    );
-  }
-
-  static TextStyle bold10({Color? color}) {
-    return TextStyle(
-      fontFamily: 'SourceSansPro-Bold',
-      fontSize: 10,
-      color: color ?? AppColors.white,
-    );
-  }
-
-  static TextStyle bold5({Color? color}) {
-    return TextStyle(
-      fontFamily: 'SourceSansPro-Bold',
-      fontSize: 5,
-      color: color ?? AppColors.white,
-    );
-  }
-
-  static TextStyle bold12({Color? color, double? height, String? fontFamily}) {
-    return TextStyle(
-      height: height,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Bold'
-              : 'Battambang-Bold'),
-      fontWeight: FontWeight.bold,
-      fontSize: Get.locale == const Locale('en', 'US') ? 12 : 12,
-      color: color ?? AppColors.white,
-    );
-  }
-
-  static TextStyle bold17({Color? color, double? height, String? fontFamily}) {
-    return TextStyle(
-      height: height,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Bold'
-              : 'Battambang-Bold'),
-      fontWeight: FontWeight.bold,
-      fontSize: Get.locale == const Locale('en', 'US') ? 17 : 15,
-      color: color ?? AppColors.white,
-    );
-  }
-
-  static TextStyle bold18({Color? color, double? height, String? fontFamily}) {
-    return TextStyle(
-      height: height,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Bold'
-              : 'Battambang-Bold'),
-      fontWeight: FontWeight.bold,
-      fontSize: Get.locale == const Locale('en', 'US') ? 18 : 18,
-      color: color ?? AppColors.white,
-    );
-  }
-
-  static TextStyle bold16({Color? color, double? height, String? fontFamily}) {
-    return TextStyle(
-      height: height,
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Bold'
-              : 'Battambang-Bold'),
-      fontWeight: FontWeight.bold,
-      fontSize: Get.locale == const Locale('en', 'US') ? 16 : 14,
-      color: color ?? AppColors.white,
-    );
-  }
-
-  static TextStyle bold13({Color? color}) {
-    return TextStyle(
-      fontFamily: 'SourceSansPro-Bold',
+  static TextStyle bold13({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
       fontSize: 13,
+      height: height,
       color: color ?? AppColors.white,
     );
   }
 
   static TextStyle bold19({Color? color, double? height}) {
-    return TextStyle(
-      fontFamily: 'SourceSansPro-Bold',
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
       height: height,
       fontSize: 19,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle bold20({Color? color, String? fontFamily}) {
-    return TextStyle(
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Bold'
-              : 'Battambang-Bold'),
-      fontSize: Get.locale == const Locale('en', 'US') ? 20 : 20,
+  static TextStyle bold20({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
+      fontSize: 20,
+      height: height,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle bold22({Color? color, String? fontFamily}) {
-    return TextStyle(
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Bold'
-              : 'Battambang-Bold'),
-      fontSize: Get.locale == const Locale('en', 'US') ? 22 : 19,
+  static TextStyle bold22({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
+      fontSize: 22,
+      height: height,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle bold24({Color? color, String? fontFamily}) {
-    return TextStyle(
-      fontFamily: fontFamily ?? 'SourceSansPro-Bold',
+  static TextStyle bold24({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
       fontSize: 24,
+      height: height,
       color: color ?? AppColors.white,
     );
   }
 
-  static TextStyle bold26({Color? color, String? fontFamily}) {
-    return TextStyle(
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Bold'
-              : 'Battambang-Bold'),
-      fontSize: Get.locale == const Locale('en', 'US') ? 26 : 20,
+  static TextStyle bold26({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
+      fontSize: 26,
+      height: height,
       color: color ?? Colors.black,
     );
   }
 
-  static TextStyle bold28({Color? color, String? fontFamily}) {
-    return TextStyle(
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Bold'
-              : 'Battambang-Bold'),
-      fontSize: Get.locale == const Locale('en', 'US') ? 28 : 22,
+  static TextStyle bold28({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
+      fontSize: 28,
+      height: height,
       color: color ?? Colors.black,
     );
   }
 
-  static TextStyle bold35({Color? color, String? fontFamily}) {
-    return TextStyle(
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Bold'
-              : 'Battambang-Bold'),
-      fontSize: Get.locale == const Locale('en', 'US') ? 35 : 25,
+  static TextStyle bold35({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
+      fontSize: 35,
+      height: height,
       color: color ?? Colors.black,
     );
   }
 
-  static TextStyle bold25({Color? color, String? fontFamily}) {
-    return TextStyle(
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Bold'
-              : 'Battambang-Bold'),
-      fontSize: Get.locale == const Locale('en', 'US') ? 25 : 25,
+  static TextStyle bold25({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
+      fontSize: 25,
+      height: height,
       color: color ?? Colors.black,
     );
   }
 
-  static TextStyle bold40({Color? color, String? fontFamily}) {
-    return TextStyle(
-      fontFamily:
-          fontFamily ??
-          (Get.locale == const Locale('en', 'US')
-              ? 'SourceSansPro-Bold'
-              : 'Battambang-Bold'),
-      fontSize: Get.locale == const Locale('en', 'US') ? 40 : 30,
+  static TextStyle bold40({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
+      fontSize: 40,
+      height: height,
       color: color ?? Colors.black,
     );
   }
 
-  static TextStyle bold50({Color? color, String? fontFamily}) {
-    return TextStyle(
-      fontFamily: fontFamily ?? 'SourceSansPro-Bold',
+  static TextStyle bold50({Color? color, double? height}) {
+    return GoogleFonts.inter(
+      fontWeight: FontWeight.w700,
       fontSize: 50,
+      height: height,
       color: color ?? AppColors.white,
     );
   }

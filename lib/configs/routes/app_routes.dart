@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 //   static const home = '/home';
 // }
 
-enum RouteView { home }
+enum RouteView { home, splash, signin, signup, onboarding }
 
 extension AppPages on RouteView {
   // Use: RouteView.home.go()
