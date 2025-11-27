@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       // initialRoute: RouteView.splash.name,
-      initialRoute: RouteView.signin.name,
+      initialRoute: RouteView.resetpwd.name,
       getPages: AppRouting.route,
       // home: const Khmer24BottomNav(),
     );

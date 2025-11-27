@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
 import 'package:grocery_store/configs/routes/app_routes.dart';
-import 'package:grocery_store/views/auth/sign_in_screen.dart';
-import 'package:grocery_store/views/auth/sign_up_screen.dart';
+import 'package:grocery_store/views/auth/forgotPwd/forgot_pwd.dart';
+import 'package:grocery_store/views/auth/forgotPwd/reset_pwd.dart';
+import 'package:grocery_store/views/auth/signin/sign_in_screen.dart';
+import 'package:grocery_store/views/auth/signup/sign_up_screen.dart';
 import 'package:grocery_store/views/home_screen.dart';
 import 'package:grocery_store/views/splash/onboarding_screen.dart';
 import 'package:grocery_store/views/splash/splash_screen.dart';
@@ -37,6 +39,18 @@ class AppRouting {
         return GetPage(
           name: "/${e.name}",
           page: () => const SignUpScreen(),
+          // binding: NotificationBinding(),
+        );
+      case RouteView.forgotpwd:
+        return GetPage(
+          name: "/${e.name}",
+          page: () => const ForgotPassword(),
+          // binding: NotificationBinding(),
+        );
+      case RouteView.resetpwd:
+        return GetPage(
+          name: "/${e.name}",
+          page: () => const ResetPwd(),
           // binding: NotificationBinding(),
         );
     }
