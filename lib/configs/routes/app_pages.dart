@@ -4,9 +4,9 @@ import 'package:grocery_store/views/auth/forgotPwd/forgot_pwd.dart';
 import 'package:grocery_store/views/auth/forgotPwd/reset_pwd.dart';
 import 'package:grocery_store/views/auth/signin/sign_in_screen.dart';
 import 'package:grocery_store/views/auth/signup/sign_up_screen.dart';
-import 'package:grocery_store/views/home_screen.dart';
 import 'package:grocery_store/views/splash/onboarding_screen.dart';
 import 'package:grocery_store/views/splash/splash_screen.dart';
+import 'package:grocery_store/views/widgets/bottom_navigation/bottom_navigation_widget.dart';
 
 class AppRouting {
   static final route = RouteView.values.map((e) {
@@ -14,7 +14,7 @@ class AppRouting {
       case RouteView.home:
         return GetPage(
           name: "/",
-          page: () => const HomeScreen(),
+          page: () => const BottomNavigationWidget(),
           // transition: Transition.noTransition,
         );
       case RouteView.splash:
